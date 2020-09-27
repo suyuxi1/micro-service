@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: content-center
+  datasource:
+    url: jdbc:mysql://120.25.149.156:3306/content_center
+    hikari:
+      username: root
+      password: suroot
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        #指定nacos server地址
+        server-addr: 120.25.149.156:8848
+        metadata:
+          instance: su
+          hello: world
+          version: 1.0
+
+server:
+  port: 9002
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+
+#ribbon随机生成策略代码配置
+#user-center:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule
+
+#饥饿加载配置
+ribbon:
+  eager-load:
+    enabled: true
+    clients: user-center

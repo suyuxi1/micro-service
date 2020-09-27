@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: user-center
+  datasource:
+    url: jdbc:mysql://120.25.149.156:3306/user_center
+    hikari:
+      username: root
+      password: suroot
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      discovery:
+        #指定nacos server地址
+        server-addr: 120.25.149.156:8848
+#        ribbon自定义命名空间
+        namespace: 538a8977-74ae-445c-885c-94d1ecaf5399
+server:
+  port: 9103
