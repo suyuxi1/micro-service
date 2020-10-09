@@ -22,6 +22,7 @@ public interface CourseService {
 
     /**
      * 通过 userid
+     *
      * @param userId 用户id
      * @return List<CourseVo>
      */

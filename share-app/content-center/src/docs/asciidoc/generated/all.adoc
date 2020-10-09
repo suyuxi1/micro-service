@@ -1,0 +1,485 @@
+= share-app Swagger文档
+
+
+[[_overview]]
+== Overview
+github地址: https://github.com/suyuxi1/micro-service
+
+
+=== Version information
+[%hardbreaks]
+__Version__ : API V1.0
+
+
+=== Contact information
+[%hardbreaks]
+__Contact__ : 苏玉溪
+__Contact Email__ : 2296887348@qq.com
+
+
+=== License information
+[%hardbreaks]
+__License__ : Apache
+__License URL__ : http://www.apache.org/
+__Terms of service__ : Terms of service
+
+
+=== URI scheme
+[%hardbreaks]
+__Host__ : 120.25.149.156:9001
+__BasePath__ : /
+
+
+=== Tags
+
+* test-controller : Test Controller
+* 公告接口 : Notice Controller
+* 分享接口 : Share Controller
+
+
+
+
+[[_paths]]
+== Resources
+
+[[_test-controller_resource]]
+=== Test-controller
+Test Controller
+
+
+[[_getusercenterusingget]]
+==== getUserCenter
+....
+GET /test
+....
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|< <<_serviceinstance,ServiceInstance>> > array
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_baiduindexusingget]]
+==== baiduIndex
+....
+GET /test/baidu
+....
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_callusercenterusingget]]
+==== callUserCenter
+....
+GET /test/call/hello
+....
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_callbyribbonusingget]]
+==== callByRibbon
+....
+GET /test/call/ribbon
+....
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_queryusingget_1]]
+==== query
+....
+GET /test/test-q
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^4"]
+|===
+|Type|Name|Schema
+|**Query**|**avatarUrl** +
+__optional__|string
+|**Query**|**bonus** +
+__optional__|integer (int32)
+|**Query**|**createTime** +
+__optional__|string (date)
+|**Query**|**id** +
+__optional__|integer (int32)
+|**Query**|**roles** +
+__optional__|string
+|**Query**|**updateTime** +
+__optional__|string (date)
+|**Query**|**wxId** +
+__optional__|string
+|**Query**|**wxNickname** +
+__optional__|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_userdto,UserDto>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_917a6a0ad3b9cec276900e3a86586a07]]
+=== 公告接口
+Notice Controller
+
+
+[[_gettopnoticeusingget]]
+==== 查询最新一条公告
+....
+GET /notice/one
+....
+
+
+===== Description
+查询最新一条公告
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_fa86f1a57d6f758a93cb33b59c015654,公告>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_3ecef281a805f36ea4142625eefacc12]]
+=== 分享接口
+Share Controller
+
+
+[[_queryusingget]]
+==== 分享列表
+....
+GET /shares/query
+....
+
+
+===== Description
+分享列表
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4,.^2"]
+|===
+|Type|Name|Description|Schema|Default
+|**Query**|**pageNo** +
+__optional__|pageNo|integer (int32)|`1`
+|**Query**|**pageSize** +
+__optional__|pageSize|integer (int32)|`10`
+|**Query**|**title** +
+__optional__|title|string|
+|**Query**|**userId** +
+__optional__|userId|integer (int32)|
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|< <<_share,Share>> > array
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_getdetailbyidusingget]]
+==== 查询指定id的分享详情
+....
+GET /shares/{id}
+....
+
+
+===== Description
+查询指定id的分享详情
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**id** +
+__required__|id|integer (int32)
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_responseresult,ResponseResult>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+
+
+[[_definitions]]
+== Definitions
+
+[[_responseresult]]
+=== ResponseResult
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**code** +
+__optional__|integer (int32)
+|**data** +
+__optional__|object
+|**msg** +
+__optional__|string
+|===
+
+
+[[_serviceinstance]]
+=== ServiceInstance
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**host** +
+__optional__|string
+|**instanceId** +
+__optional__|string
+|**metadata** +
+__optional__|< string, string > map
+|**port** +
+__optional__|integer (int32)
+|**scheme** +
+__optional__|string
+|**secure** +
+__optional__|boolean
+|**serviceId** +
+__optional__|string
+|**uri** +
+__optional__|<<_uri,URI>>
+|===
+
+
+[[_share]]
+=== Share
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**auditStatus** +
+__optional__|string
+|**author** +
+__optional__|string
+|**buyCount** +
+__optional__|integer (int32)
+|**cover** +
+__optional__|string
+|**createTime** +
+__optional__|string (date)
+|**downloadUrl** +
+__optional__|string
+|**id** +
+__optional__|integer (int32)
+|**isOriginal** +
+__optional__|boolean
+|**price** +
+__optional__|integer (int32)
+|**reason** +
+__optional__|string
+|**showFlag** +
+__optional__|boolean
+|**summary** +
+__optional__|string
+|**title** +
+__optional__|string
+|**updateTime** +
+__optional__|string (date)
+|**userId** +
+__optional__|integer (int32)
+|===
+
+
+[[_uri]]
+=== URI
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**absolute** +
+__optional__|boolean
+|**authority** +
+__optional__|string
+|**fragment** +
+__optional__|string
+|**host** +
+__optional__|string
+|**opaque** +
+__optional__|boolean
+|**path** +
+__optional__|string
+|**port** +
+__optional__|integer (int32)
+|**query** +
+__optional__|string
+|**rawAuthority** +
+__optional__|string
+|**rawFragment** +
+__optional__|string
+|**rawPath** +
+__optional__|string
+|**rawQuery** +
+__optional__|string
+|**rawSchemeSpecificPart** +
+__optional__|string
+|**rawUserInfo** +
+__optional__|string
+|**scheme** +
+__optional__|string
+|**schemeSpecificPart** +
+__optional__|string
+|**userInfo** +
+__optional__|string
+|===
+
+
+[[_userdto]]
+=== UserDto
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**avatarUrl** +
+__optional__|string
+|**bonus** +
+__optional__|integer (int32)
+|**createTime** +
+__optional__|string (date)
+|**id** +
+__optional__|integer (int32)
+|**roles** +
+__optional__|string
+|**updateTime** +
+__optional__|string (date)
+|**wxId** +
+__optional__|string
+|**wxNickname** +
+__optional__|string
+|===
+
+
+[[_fa86f1a57d6f758a93cb33b59c015654]]
+=== 公告
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**content** +
+__optional__|公告内容|string
+|**createTime** +
+__optional__|创建时间|string (date)
+|**id** +
+__optional__|公告id|integer (int32)
+|**showFlag** +
+__optional__|是否显示 0：否 1：是|boolean
+|===
+
+
+
+
+

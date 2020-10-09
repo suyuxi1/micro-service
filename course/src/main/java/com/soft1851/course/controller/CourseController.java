@@ -22,7 +22,7 @@ import java.util.List;
 @RequiredArgsConstructor(onConstructor = @__(@Autowired))
 public class CourseController {
 
-//    @Autowired
+    //    @Autowired
     private final CourseService courseService;
 
     /**

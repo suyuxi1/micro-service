@@ -1,12 +1,30 @@
+server:
+  port: 9001
 spring:
   application:
     name: content-center
+  main:
+    allow-bean-definition-overriding: true
   datasource:
     url: jdbc:mysql://120.25.149.156:3306/content_center
     hikari:
       username: root
       password: suroot
       driver-class-name: com.mysql.cj.jdbc.Driver
+      # 最小连接数
+      minimum-idle: 1
+      # 最大连接数
+      maximum-pool-size: 200
+      # 自动提交
+      auto-commit: true
+      # 连接超时的最大时长（毫秒），超时则被释放（retired），默认:10分钟
+      idle-timeout: 10000
+      # 连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟 1800000ms
+      max-lifetime: 1800000
+      # 等待连接池分配连接的最大时长（毫秒）
+      connection-timeout: 30000
+      # 连接测试查询语句
+      connection-test-query: SELECT 1
   cloud:
     nacos:
       discovery:
@@ -16,9 +34,12 @@ spring:
           instance: su
           hello: world
           version: 1.0
+    #    服务容错
+    sentinel:
+      transport:
+        dashboard: localhost:8080
 
-server:
-  port: 9002
+
 management:
   endpoints:
     web:
@@ -38,3 +59,31 @@ ribbon:
   eager-load:
     enabled: true
     clients: user-center
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+logging:
+  level:
+    com.soft1851.content.center.feignclient.UserCenterFeignClient: debug
+  #feign日志配置
+  #feign:
+  #  client:
+  #    config:
+  ##      全局配置
+  #      user-center:
+  #        loggerLevel: full
+  httpclient:
+    #    让feign使用apache httpclient做请求； 而不是默认的URL connection
+    enabled: true
+    #    feign的最大连接数
+    max-connections: 200
+    #    feign单个路劲的最大连接数
+    max-connections-per-route: 50
+
+rocketmq:
+  name-server: 120.25.149.156:9876
+  producer:
+    group: test-group

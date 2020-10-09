@@ -18,6 +18,7 @@ public interface CourseMapper {
 
     /**
      * //
+     *
      * @param id
      * @return Course
      */
@@ -25,9 +26,7 @@ public interface CourseMapper {
     List<Course> queryList(@Param("id") String id);
 
 
-
     /**
-     *
      * @param id
      * @return Course
      */

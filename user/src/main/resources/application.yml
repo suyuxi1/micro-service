@@ -7,9 +7,9 @@ spring:
     url: jdbc:mysql://120.25.149.156:3306/db_su?serverTimezone=Asia/Shanghai
     username: root
     password: suroot
-#    url: jdbc:mysql://localhost:3306/db_s?serverTimezone=Asia/Shanghai
-#    username: root
-#    password: root
+    #    url: jdbc:mysql://localhost:3306/db_s?serverTimezone=Asia/Shanghai
+    #    username: root
+    #    password: root
 
     hikari:
       # 最小连接数

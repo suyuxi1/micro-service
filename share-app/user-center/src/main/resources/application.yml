@@ -1,3 +1,6 @@
+server:
+  port: 9103
+
 spring:
   application:
     name: user-center
@@ -7,12 +10,33 @@ spring:
       username: root
       password: suroot
       driver-class-name: com.mysql.cj.jdbc.Driver
+      # 最小连接数
+      minimum-idle: 1
+      # 最大连接数
+      maximum-pool-size: 200
+      # 自动提交
+      auto-commit: true
+      # 连接超时的最大时长（毫秒），超时则被释放（retired），默认:10分钟
+      idle-timeout: 10000
+      # 连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟 1800000ms
+      max-lifetime: 1800000
+      # 等待连接池分配连接的最大时长（毫秒）
+      connection-timeout: 30000
+      # 连接测试查询语句
+      connection-test-query: SELECT 1
   cloud:
     nacos:
       discovery:
         #指定nacos server地址
         server-addr: 120.25.149.156:8848
-#        ribbon自定义命名空间
-        namespace: 538a8977-74ae-445c-885c-94d1ecaf5399
-server:
-  port: 9103
+#        nacos自定义命名空间
+#        namespace: 538a8977-74ae-445c-885c-94d1ecaf5399
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+rocketmq:
+  name-server: 120.25.149.156:9876
+

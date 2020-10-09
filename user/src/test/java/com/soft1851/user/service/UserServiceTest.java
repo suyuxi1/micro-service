@@ -15,6 +15,7 @@ class UserServiceTest {
 
     @Resource
     private UserService userService;
+
     @Test
     void queryById() {
         System.out.println(userService.queryById("1").size());

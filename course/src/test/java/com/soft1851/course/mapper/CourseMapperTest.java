@@ -17,6 +17,7 @@ class CourseMapperTest {
 
     @Resource
     private CourseMapper courseMapper;
+
     @Test
     void queryList() {
         System.out.println(courseMapper.queryList("1").size());
