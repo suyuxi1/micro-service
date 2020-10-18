@@ -1,9 +1,16 @@
 server:
   port: 9103
 
+
 spring:
   application:
     name: user-center
+  zipkin:
+    base-url: http://120.25.149.156:9411/
+    discovery-client-enabled: false
+    sleuth:
+      sampler:
+        probability: 1.0
   datasource:
     url: jdbc:mysql://120.25.149.156:3306/user_center
     hikari:
@@ -30,7 +37,7 @@ spring:
         #指定nacos server地址
         server-addr: 120.25.149.156:8848
 #        nacos自定义命名空间
-#        namespace: 538a8977-74ae-445c-885c-94d1ecaf5399
+#        namespace: 44675539-ace5-4399-b169-ff9f166579b2
 
 mybatis:
   configuration:
@@ -40,3 +47,6 @@ mybatis:
 rocketmq:
   name-server: 120.25.149.156:9876
 
+jwt:
+  secret: aaaaaaabbbbbbcccccdddddaaaaaaabbbbbbcccccdddddaaaaaaabbbbbbcccccddddd
+  expire-time-in-second: 1209600

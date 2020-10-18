@@ -3,6 +3,12 @@ server:
 spring:
   application:
     name: content-center
+#  zipkin:
+#    base-url: http://120.25.149.156:9411/
+#    discovery-client-enabled: false
+  sleuth:
+    sampler:
+      probability: 1.0
   main:
     allow-bean-definition-overriding: true
   datasource:
@@ -18,11 +24,11 @@ spring:
       # 自动提交
       auto-commit: true
       # 连接超时的最大时长（毫秒），超时则被释放（retired），默认:10分钟
-      idle-timeout: 10000
+      idle-timeout: 100000
       # 连接的生命时长（毫秒），超时而且没被使用则被释放（retired），默认:30分钟 1800000ms
       max-lifetime: 1800000
       # 等待连接池分配连接的最大时长（毫秒）
-      connection-timeout: 30000
+      connection-timeout: 300000
       # 连接测试查询语句
       connection-test-query: SELECT 1
   cloud:
@@ -30,6 +36,7 @@ spring:
       discovery:
         #指定nacos server地址
         server-addr: 120.25.149.156:8848
+#        namespace: 44675539-ace5-4399-b169-ff9f166579b2
         metadata:
           instance: su
           hello: world
@@ -68,13 +75,20 @@ mybatis:
 logging:
   level:
     com.soft1851.content.center.feignclient.UserCenterFeignClient: debug
+    org.springframework.cloud.sleuth: debug
   #feign日志配置
-  #feign:
-  #  client:
-  #    config:
-  ##      全局配置
-  #      user-center:
-  #        loggerLevel: full
+  feign:
+    sentinel:
+      #为feign整合sentinel
+      enabled: true
+    client:
+      config:
+  #      全局配置
+        default:
+          loggerLevel: full
+#          配置feign的拦截器，让token可以在各个微服务之间传递
+          requestInterceptor:
+            - com.soft1851.content.center.feignclient.TonkenInterceptor
   httpclient:
     #    让feign使用apache httpclient做请求； 而不是默认的URL connection
     enabled: true

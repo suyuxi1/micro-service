@@ -1,7 +1,8 @@
 package com.soft1851.content.center.feignclient;
 
+import com.soft1851.content.center.domain.dto.ResponseDTO;
 import com.soft1851.content.center.domain.dto.UserAddBonusMsgDTO;
-import com.soft1851.content.center.domain.entity.User;
+import com.soft1851.content.center.domain.dto.UserDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,10 +21,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface UserCenterFeignClient {
 
     @GetMapping("/users/{id}")
-    User findUserById(@PathVariable Integer id);
+    ResponseDTO findUserById(@PathVariable Integer id);
 
 
     @PostMapping("/users/bonus")
-    int updateBonus(@RequestBody UserAddBonusMsgDTO userAddBonusMsgDTO);
+    UserDTO updateBonus(@RequestBody UserAddBonusMsgDTO userAddBonusMsgDTO);
 
 }

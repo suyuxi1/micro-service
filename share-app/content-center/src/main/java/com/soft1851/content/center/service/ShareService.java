@@ -1,12 +1,11 @@
 package com.soft1851.content.center.service;
 
 import com.github.pagehelper.PageInfo;
+import com.soft1851.content.center.domain.dto.ExchangeDTO;
 import com.soft1851.content.center.domain.dto.ShareAuditDTO;
-import com.soft1851.content.center.domain.dto.ShareDto;
+import com.soft1851.content.center.domain.dto.ShareDTO;
 import com.soft1851.content.center.domain.dto.ShareRequestDTO;
 import com.soft1851.content.center.domain.entity.Share;
-
-import java.util.List;
 
 /**
  * @author Su
@@ -18,13 +17,14 @@ import java.util.List;
 public interface ShareService {
 
 
+
     /**
      * 通过Feign调用user-center服务
      *
      * @param id
      * @return
      */
-    ShareDto ShareDetailByFeign(Integer id);
+    ShareDTO ShareDetailByFeign(Integer id);
 
 
     /**
@@ -33,17 +33,23 @@ public interface ShareService {
      * @param id
      * @return
      */
-    ShareDto ShareDetail(Integer id);
+    ShareDTO ShareDetail(Integer id);
 
 
-    List<ShareDto> shareDetailList(Integer id);
+//    List<ShareDTO> shareDetailList(Integer id);
 
     PageInfo<Share> query(String title, Integer pageNo, Integer pageSize, Integer userId);
+
+    /**
+     * 投稿
+     * @param shareRequestDTO
+     * @return Share
+     */
 
     Share insertShare(ShareRequestDTO shareRequestDTO);
 
     /**
-     * 审核异步操作
+     * 异步审核操作
      *
      * @param id
      * @param shareAuditDTO
@@ -51,14 +57,29 @@ public interface ShareService {
      */
     Share auditById(Integer id, ShareAuditDTO shareAuditDTO);
 
+
     /**
-     * 通过feign来调用用户中心接口
+     * 积分兑换资源
      *
-     * @param id
-     * @param shareAuditDTO
-     * @return
+     * @param exchangeDTO
+     * @return Share
      */
-    Share auditByFeign(Integer id, ShareAuditDTO shareAuditDTO);
+    Share exchange(ExchangeDTO exchangeDTO);
+
+
+    PageInfo<Share> myExchange(Integer pageNo, Integer pageSize, Integer userId);
+
+    PageInfo<Share> myContribute(Integer pageNo, Integer pageSize, Integer userId);
+
+//
+//    /**
+//     * 通过feign来调用用户中心接口
+//     *
+//     * @param id
+//     * @param shareAuditDTO
+//     * @return
+//     */
+//    Share auditByFeign(Integer id, ShareAuditDTO shareAuditDTO);
 
     /**
      * 通过AsyncRestTemplate 来调用用户中心接口
@@ -77,4 +98,7 @@ public interface ShareService {
      * @return
      */
     Share redactShare(Integer id, ShareRequestDTO shareRequestDTO);
+
+
+
 }

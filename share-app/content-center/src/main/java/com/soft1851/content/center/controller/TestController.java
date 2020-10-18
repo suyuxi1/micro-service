@@ -2,7 +2,7 @@ package com.soft1851.content.center.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
-import com.soft1851.content.center.domain.dto.UserDto;
+import com.soft1851.content.center.domain.dto.UserDTO;
 import com.soft1851.content.center.domain.entity.User;
 import com.soft1851.content.center.feignclient.TestBaiduFeignClient;
 import com.soft1851.content.center.feignclient.TestUserCenterFeignClient;
@@ -84,7 +84,7 @@ public class TestController {
     private TestUserCenterFeignClient testUserCenterFeignClient;
 
     @GetMapping("/test-q")
-    public UserDto query(UserDto userDto) {
+    public UserDTO query(UserDTO userDto) {
         return testUserCenterFeignClient.getUser(userDto);
     }
 

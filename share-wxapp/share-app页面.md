@@ -1,0 +1,21 @@
+* 未登录主页
+    * ![图片](https://uploader.shimo.im/f/rCF83APmDOjl28cd.png!thumbnail)
+* 投稿
+    * ![图片](https://uploader.shimo.im/f/AcVkZITnmsLbZyZ3.png!thumbnail)
+* 登录
+    * ![图片](https://uploader.shimo.im/f/SKX8Lp2QwHdEyBpR.png!thumbnail)
+* 积分明细
+    * ![图片](https://uploader.shimo.im/f/gKRE7xAQkunbH1bh.png!thumbnail)
+* 我的投稿
+    * ![图片](https://uploader.shimo.im/f/hGydXeCbifyEIzyL.png!thumbnail)
+* 填写投稿
+    * ![图片](https://uploader.shimo.im/f/Nia6XnxRXuaPSLgk.png!thumbnail)
+* 兑换页
+    * ![图片](https://uploader.shimo.im/f/zFEht5ju97viPsny.png!thumbnail)
+* 详情页
+    * ![图片](https://uploader.shimo.im/f/1W0T5FVLMXZPc9GW.png!thumbnail)
+* 兑换成功页
+    * ![图片](https://uploader.shimo.im/f/cGU8TnIsOINsSUj1.png!thumbnail)
+* 复制下载地址
+    * ![图片](https://uploader.shimo.im/f/FCmZwiHmxVxauhB1.png!thumbnail)
+    * 

@@ -20,5 +20,9 @@ public class ShareAuditDTO {
 
     private String auditStatusEnum;
 
+    /**
+     * 原因
+     */
+    private String reason;
 
 }

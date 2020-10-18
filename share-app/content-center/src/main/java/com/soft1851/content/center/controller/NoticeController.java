@@ -25,7 +25,7 @@ public class NoticeController {
 
     private final NoticeService noticeService;
 
-    @GetMapping("/one")
+    @GetMapping("/latest")
     @ApiOperation(value = "查询最新一条公告", notes = "查询最新一条公告")
     public Notice getTopNotice() {
         return this.noticeService.getLatest();

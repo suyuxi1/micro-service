@@ -1,6 +1,7 @@
 package com.soft1851.user.center.domain.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  * @author su
@@ -22,6 +23,7 @@ import java.sql.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "user")
+@Builder
 public class User implements Serializable {
     private static final long serialVersionUID = -21117904334438215L;
 
