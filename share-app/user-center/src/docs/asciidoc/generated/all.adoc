@@ -1,0 +1,427 @@
+= share-app Swagger文档
+
+
+[[_overview]]
+== Overview
+github地址: https://github.com/suyuxi1/micro-service
+
+
+=== Version information
+[%hardbreaks]
+__Version__ : API V1.0
+
+
+=== Contact information
+[%hardbreaks]
+__Contact__ : 苏玉溪
+__Contact Email__ : 2296887348@qq.com
+
+
+=== License information
+[%hardbreaks]
+__License__ : Apache
+__License URL__ : http://www.apache.org/
+__Terms of service__ : Terms of service
+
+
+=== URI scheme
+[%hardbreaks]
+__Host__ : localhost:9103
+__BasePath__ : /
+
+
+=== Tags
+
+* test-controller : Test Controller
+* user-controller : User Controller
+
+
+
+
+[[_paths]]
+== Resources
+
+[[_test-controller_resource]]
+=== Test-controller
+Test Controller
+
+
+[[_getuserusingget]]
+==== getUser
+....
+GET /test/q
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^4"]
+|===
+|Type|Name|Schema
+|**Query**|**avatarUrl** +
+__optional__|string
+|**Query**|**bonus** +
+__optional__|integer (int32)
+|**Query**|**createTime** +
+__optional__|string (date-time)
+|**Query**|**id** +
+__optional__|integer (int32)
+|**Query**|**roles** +
+__optional__|string
+|**Query**|**updateTime** +
+__optional__|string (date-time)
+|**Query**|**wxId** +
+__optional__|string
+|**Query**|**wxNickname** +
+__optional__|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_user,User>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_user-controller_resource]]
+=== User-controller
+User Controller
+
+
+[[_updatebonususingpost]]
+==== updateBonus
+....
+POST /users/bonus
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**userAddBonusMsgDto** +
+__required__|userAddBonusMsgDto|<<_useraddbonusmsgdto,UserAddBonusMsgDTO>>
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|integer (int32)
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_hellousingget]]
+==== hello
+....
+GET /users/hello
+....
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|string
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_getbonuseventsusingget]]
+==== 查询积分明细
+....
+GET /users/my-bonus-log
+....
+
+
+===== Description
+查询积分明细
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Header**|**X-Token** +
+__optional__|X-Token|string
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|< <<_bonuseventlog,BonusEventLog>> > array
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_updatebonususingput]]
+==== 修改用户积分
+....
+PUT /users/update-bonus
+....
+
+
+===== Description
+修改用户积分
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Body**|**userAddBonusDTO** +
+__required__|userAddBonusDTO|<<_92abdd77a7b35f554d32e0d4d95c9749,用户添加积分数据传输对象>>
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_user,User>>
+|**201**|Created|No Content
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Consumes
+
+* `application/json`
+
+
+===== Produces
+
+* `*/*`
+
+
+[[_getuserbyidusingget]]
+==== getUserById
+....
+GET /users/{id}
+....
+
+
+===== Parameters
+
+[options="header", cols=".^2,.^3,.^9,.^4"]
+|===
+|Type|Name|Description|Schema
+|**Path**|**id** +
+__required__|id|integer (int32)
+|===
+
+
+===== Responses
+
+[options="header", cols=".^2,.^14,.^4"]
+|===
+|HTTP Code|Description|Schema
+|**200**|OK|<<_user,User>>
+|**401**|Unauthorized|No Content
+|**403**|Forbidden|No Content
+|**404**|Not Found|No Content
+|===
+
+
+===== Produces
+
+* `*/*`
+
+
+
+
+[[_definitions]]
+== Definitions
+
+[[_bonuseventlog]]
+=== BonusEventLog
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**createTime** +
+__optional__|string (date-time)
+|**description** +
+__optional__|string
+|**event** +
+__optional__|string
+|**id** +
+__optional__|integer (int32)
+|**userId** +
+__optional__|integer (int32)
+|**value** +
+__optional__|integer (int32)
+|===
+
+
+[[_jwttokenrespdto]]
+=== JwtTokenRespDTO
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**expirationTime** +
+__optional__|integer (int64)
+|**token** +
+__optional__|string
+|===
+
+
+[[_logindto]]
+=== LoginDTO
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**avatarUrl** +
+__optional__|string
+|**loginCode** +
+__optional__|string
+|**openId** +
+__optional__|string
+|**wxNickname** +
+__optional__|string
+|===
+
+
+[[_loginrespdto]]
+=== LoginRespDTO
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**token** +
+__optional__|<<_jwttokenrespdto,JwtTokenRespDTO>>
+|**user** +
+__optional__|<<_userrespdto,UserRespDTO>>
+|===
+
+
+[[_user]]
+=== User
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**avatarUrl** +
+__optional__|string
+|**bonus** +
+__optional__|integer (int32)
+|**createTime** +
+__optional__|string (date-time)
+|**id** +
+__optional__|integer (int32)
+|**roles** +
+__optional__|string
+|**updateTime** +
+__optional__|string (date-time)
+|**wxId** +
+__optional__|string
+|**wxNickname** +
+__optional__|string
+|===
+
+
+[[_useraddbonusmsgdto]]
+=== UserAddBonusMsgDTO
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**bonus** +
+__optional__|积分数|integer (int32)
+|**description** +
+__optional__|描述|string
+|**event** +
+__optional__|积分事件|string
+|**userId** +
+__optional__|用户id|integer (int32)
+|===
+
+
+[[_userrespdto]]
+=== UserRespDTO
+
+[options="header", cols=".^3,.^4"]
+|===
+|Name|Schema
+|**avatarUrl** +
+__optional__|string
+|**bonus** +
+__optional__|integer (int32)
+|**id** +
+__optional__|integer (int32)
+|**roles** +
+__optional__|string
+|**wxNickname** +
+__optional__|string
+|===
+
+
+[[_92abdd77a7b35f554d32e0d4d95c9749]]
+=== 用户添加积分数据传输对象
+
+[options="header", cols=".^3,.^11,.^4"]
+|===
+|Name|Description|Schema
+|**bonus** +
+__optional__|积分数|integer (int32)
+|**userId** +
+__optional__|用户id|integer (int32)
+|===
+
+
+
+
+
